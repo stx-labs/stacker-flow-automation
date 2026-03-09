@@ -1,4 +1,4 @@
-import { all, query } from './db';
+import { all, get, query } from './db';
 import {
   insertDelegations,
   insertAcceptedDelegations,
@@ -13,6 +13,7 @@ import {
   insertRewardIndexes,
   selectRewardIndexes,
   clearRewardIndexes,
+  selectTotalAmounts,
 } from './models';
 import { DatabaseEntry } from './types';
 
@@ -124,7 +125,18 @@ export const saveRewardIndexes = async (rewardIndexes: any) => {
 };
 
 export const getPendingTransactions = async (): Promise<DatabaseEntry[]> => {
-  return await all(selectPendingTransactions);
+  const rows = await all(selectPendingTransactions);
+
+  return rows.map((row) => ({
+    txid: row.txid,
+    functionName: row.function_name,
+    stacker: row.stacker,
+    poxAddress: row.pox_address,
+    startCycle: row.txstart_cycleid,
+    endCycle: row.end_cycle,
+    rewardCycle: row.reward_cycle,
+    rewardIndex: row.reward_index,
+  }));
 };
 
 export const deletePendingTransaction = async (txid: string) => {
@@ -159,11 +171,11 @@ export const getRewardIndexes = async () => {
 
   rows.forEach((row) => {
     const entry = {
-      rewardIndex: row.rewardIndex,
-      poxAddress: row.poxAddress,
+      rewardIndex: row.reward_index,
+      poxAddress: row.pox_address,
       signer: row.signer,
       stacker: JSON.parse(row.stacker),
-      totalUstx: row.totalUstx,
+      totalUstx: row.total_ustx,
     };
 
     if (!data.has(row.cycle)) {
@@ -178,4 +190,15 @@ export const getRewardIndexes = async () => {
 
 export const deleteRewardIndexes = async () => {
   await query(clearRewardIndexes);
+};
+
+export const getTotalAmounts = async (cycle: number) => {
+  const data = await get(selectTotalAmounts, [cycle]);
+
+  return {
+    totalDelegated: Number(data.total_delegated),
+    totalAccepted: Number(data.total_accepted),
+    totalCommitted: Number(data.total_committed),
+    cycle,
+  };
 };

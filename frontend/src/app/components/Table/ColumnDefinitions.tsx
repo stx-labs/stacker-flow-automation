@@ -28,7 +28,7 @@ const createStackerColumn = (): CustomColumnDef<RowData> => ({
 
 const createPoxAddressColumn = (): CustomColumnDef<RowData> => ({
   header: "POX Address",
-  accessorKey: "poxAddress",
+  accessorKey: "pox_address",
   filterType: "text",
   cell: ({ getValue }) => {
     const poxAddress = getValue<string>();
@@ -51,16 +51,16 @@ const createTransactionColumn = (): CustomColumnDef<RowData> => ({
   accessorKey: "txid",
   filterType: "text",
   cell: ({ getValue }) => {
-    const poxAddress = getValue<string>();
-    const shortPoxAddress = shortenAddress(poxAddress);
+    const txid = getValue<string>();
+    const shortTxid = shortenAddress(txid);
     return (
       <a
-        href={GET_TRANSACTION_EXPLORER_URL(poxAddress)}
+        href={GET_TRANSACTION_EXPLORER_URL(txid)}
         target="_blank"
         rel="noopener noreferrer"
         className="text-purple-600 dark:text-purple-400 hover:underline"
       >
-        {shortPoxAddress}
+        {shortTxid}
       </a>
     );
   },
@@ -68,38 +68,38 @@ const createTransactionColumn = (): CustomColumnDef<RowData> => ({
 
 const createAmountStxColumn = (): CustomColumnDef<RowData> => ({
   header: "Amount STX",
-  accessorKey: "amountStx",
+  accessorKey: "amount_stx",
   filterType: "number",
   cell: ({ getValue }) => formatNumber(getValue<number>()),
 });
 
 const createStartCycleColumn = (): CustomColumnDef<RowData> => ({
   header: "Start Cycle",
-  accessorKey: "startCycle",
+  accessorKey: "start_cycle",
   filterType: "number",
 });
 
 const createEndCycleColumn = (): CustomColumnDef<RowData> => ({
   header: "End Cycle",
-  accessorKey: "endCycle",
+  accessorKey: "end_cycle",
   filterType: "number",
 });
 
 const createFunctionNameColumn = (): CustomColumnDef<RowData> => ({
   header: "Function Name",
-  accessorKey: "functionName",
+  accessorKey: "function_name",
   filterType: "text",
 });
 
 const createRewardCycleColumn = (): CustomColumnDef<RowData> => ({
   header: "Reward Cycle",
-  accessorKey: "rewardCycle",
+  accessorKey: "reward_cycle",
   filterType: "number",
 });
 
 const createRewardIndexColumn = (): CustomColumnDef<RowData> => ({
   header: "Reward Index",
-  accessorKey: "rewardIndex",
+  accessorKey: "reward_index",
   filterType: "number",
 });
 

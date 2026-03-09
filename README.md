@@ -54,27 +54,63 @@ $ cd backend && \
 The `backend` folder contains an `.env.example` file that you have to modify with your pool data:
 
 ```bash
-# The stacks network
-# Possible options:
-#   - mainnet
-#   - testnet
-#   - devnet
-NETWORK="devnet"
+# Stacks Network
+# Options: mainnet, testnet, devnet
+NETWORK="mainnet"
 
-# Your pool operator address (the one that makes the stacking transactions)
-POOL_OPERATOR="ST2NEB84ASENDXKYGJPQW86YXQCEFEX2ZQPG87ND"
+# Base API URL
+# If ommitted, defaults to the Hiro API endpoint for the specific network.
+API_URL="https://api.mainnet.hiro.so"
 
-# Your pool's BTC reward address
-POOL_BTC_ADDRESS="mg1C76bNTutiCDV3t9nWhZs3Dc8LzUufj8"
+# Database Config
+# If ommitted, defaults to usual postgres auth
+POSTGRES_HOST="localhost"
+POSTGRES_PORT="5432"
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="postgres"
+POSTGRES_DB="stacker_flow_automation"
 
-# The private key matching the pool operator address (used for transaction signing)
-POOL_PRIVATE_KEY="f9d7206a47f14d2870c163ebab4bf3e70d18f5d14ce1031f3902fbbc894fe4c701"
+# Pool Operator Stacks Address
+# This is the address where the delegation is received
+POOL_OPERATOR="SP71DAR6STPJRAPVMKY0FEV0N8J6VGP8ADFDR6B4"
 
-# The private key of the signer (used for generating signatures for `stack-aggregation-*` contract calls)
-SIGNER_PRIVATE_KEY="530d9f61984c888536871c6573073bdfc0058896dc1adfe9a6a10dfacadc209101"
+# Pool Bitcoin Address
+# This is the address where the stacking rewards will be received
+POOL_BTC_ADDRESS="12HVch5GS1cwzXdqQai59FTEoyUqtTgWzr"
 
-# How many cycles in the future to do the stacking transactions (between 1 and 12)
-MAX_CYCLES_FOR_OPERATIONS="12"
+# Pool Operator Private Key
+# This is the private key that matches the pool operator address, used for broadcasting stacking transactions
+POOL_PRIVATE_KEY="ea46884200f7c31fcfd8c3887c3f9c9a9d048eeea06f931670fc0010e3f4748b01"
+
+# Signer Private Key
+# The private key of the signer, used to generate stacking signatures that will be used in the stacking transactions
+SIGNER_PRIVATE_KEY="9554eb6e9ee79a756a9acd45803e1e16b0e180d2387a756213c2f470294d42d401"
+
+# Prometheus Port
+# The port where metrics will be published. If ommitted, defaults to 9123.
+PROMETHEUS_PORT="9123"
+
+# Server Port
+# The place where the server hosts data for the frontend application.
+SERVER_PORT="8080"
+
+# API Calls Timeout
+# How much to wait before timeout on API calls, in milliseconds
+API_CALLS_TIMEOUT_MS="60000"
+
+# Detailed Logs
+# If set to true, will print data about each delegation/accepted delegation/committed delegation, otherwise only amounts
+DETAILED_LOGS="false"
+
+# Max Cycles for Operations
+# How many cycles in the future the funds will be stacked for. Defaults to 1.
+# Change at your own risk, if set to 12 the STX will be locked/stacked for a period of 6 months.
+MAX_CYCLES_FOR_OPERATIONS="1"
+
+# Blocks Until Prepare Phase
+# When to start performing the stacking operations, relative to the prepare phase. Defaults to 100.
+# Example: If it's set to 500, the backend will only perform the stacking operations when there are 500 blocks left until the prepare phase.
+BLOCKS_UNTIL_PREPARE_PHASE="500"
 ```
 
 After you have modified the `.env.example` file, you then have move it to `.env`:

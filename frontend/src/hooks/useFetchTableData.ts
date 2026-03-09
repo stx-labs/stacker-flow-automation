@@ -14,7 +14,7 @@ const fetchTableData = async (
     if (Array.isArray(response.data[key])) {
       transformedData[key] = response.data[key].map((row: RowData) => ({
         ...row,
-        amountStx: row.amountUstx / 10 ** 6,
+        amount_stx: row.amount_ustx / 10 ** 6,
       }));
     } else {
       transformedData[key] = response.data[key];

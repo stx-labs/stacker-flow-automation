@@ -9,11 +9,13 @@ import {
   FIRST_POX_4_CYCLE,
   NETWORK,
   NetworkUsed,
+  POOL_BTC_ADDRESS,
 } from './consts';
 import {
   fetchData,
   fetchRewardCycleIndex,
   fetchTransactionInfo,
+  getUserUnlockedBalance,
 } from './api-calls';
 import { query } from './db';
 import {
@@ -159,26 +161,30 @@ export const getEvents = async () => {
   while (moreData) {
     const data = await fetchData(offset);
 
-    if (data && data.length > 0) {
-      for (const entry of data) {
-        if (isDbEventsEmpty) {
-          rawEvents.push(entry);
-        } else {
-          const lastDbEventString = JSON.stringify(lastDbEvent);
-          const entryString = JSON.stringify(entry);
-
-          if (lastDbEventString !== entryString) {
+    if (data) {
+      if (data.length > 0) {
+        for (const entry of data) {
+          if (isDbEventsEmpty) {
             rawEvents.push(entry);
           } else {
-            shouldDeleteEvents = false;
-            moreData = false;
-            break;
+            const lastDbEventString = JSON.stringify(lastDbEvent);
+            const entryString = JSON.stringify(entry);
+
+            if (lastDbEventString !== entryString) {
+              rawEvents.push(entry);
+            } else {
+              shouldDeleteEvents = false;
+              moreData = false;
+              break;
+            }
           }
         }
+        offset += LIMIT;
+      } else {
+        moreData = false;
       }
-      offset += LIMIT;
     } else {
-      moreData = false;
+      return null;
     }
   }
 
@@ -248,6 +254,7 @@ export const getEvents = async () => {
           stacker: result.data.stacker,
           startCycle: result.data['start-cycle-id'],
           endCycle: result.data['end-cycle-id'],
+          amountUstx: result.locked,
           poxAddress:
             result.data['pox-addr'] != null
               ? poxAddressToBtcAddress(
@@ -396,7 +403,12 @@ export const parseEvents = async (events: any, rewardIndexesMap: any) => {
           const existingList = acceptedDelegations.get(stacker);
           const lastEntry = existingList[existingList.length - 1];
 
-          lastEntry.endCycle = endCycle;
+          if (lastEntry.poxAddress === poxAddress) {
+            lastEntry.endCycle = endCycle;
+          } else {
+            existingList.push({ startCycle, endCycle, poxAddress, amountUstx });
+          };
+
           acceptedDelegations.set(stacker, existingList);
         }
         break;
@@ -555,6 +567,10 @@ export const getRewardIndexesMap = async (currentCycle: number) => {
       rewardIndex
     );
 
+    if (rewardCycleIndexData === null) {
+      continue;
+    };
+
     if (rewardCycleIndexData.value === null) {
       if (
         rewardCycle >
@@ -618,7 +634,7 @@ export const getRewardIndexesMap = async (currentCycle: number) => {
   return allEntries;
 };
 
-export const createAndClearTables = async () => {
+export const createTables = async () => {
   await query(createDelegationsTable);
   await query(createAcceptedDelegationsTable);
   await query(createCommittedDelegationsTable);
@@ -626,8 +642,6 @@ export const createAndClearTables = async () => {
   await query(createPendingTransactionsTable);
   await query(createEventsTable);
   await query(createRewardIndexesTable);
-
-  await clearTables();
 };
 
 export const clearTables = async () => {
@@ -659,101 +673,139 @@ const processTransactions = async (
   availableTransactions: any,
   nonce: bigint,
   poolClient: StackingClient,
-  dbEntries: any
+  dbEntries: any,
+  fee: number,
 ) => {
   let localNonce = nonce;
+  const rewardAddress = POOL_BTC_ADDRESS;
+  let addressChanged = null;
 
   for (const transaction of availableTransactions) {
     if (!wasTransactionBroadcasted(dbEntries, transaction)) {
       switch (transaction.functionName) {
         case 'delegate-stack-stx':
-          const txidAcceptedDelegation = await acceptDelegation(
-            transaction.stacker,
-            transaction.amountUstx,
-            transaction.currentBlock,
-            transaction.poxAddress,
-            transaction.maxCycles,
-            localNonce,
-            poolClient
-          );
-          localNonce++;
-          await savePendingTransaction({
-            ...transaction,
-            txid: txidAcceptedDelegation,
-          });
-          console.log(
-            `Delegation from ${transaction.stacker} was accepted for ${transaction.amountUstx} uSTX for ${transaction.maxCycles} cycles. Txid: ${txidAcceptedDelegation}`
-          );
+          const { locked: lockedStack, total: totalStack } = await getUserUnlockedBalance(transaction.stacker);
+          if (totalStack === null && lockedStack === null) {
+            return;
+          };
+
+          if (totalStack > 0 && !(lockedStack > 0)) {
+            const amount = Math.min(transaction.amountUstx, totalStack);
+            const txidAcceptedDelegation = await acceptDelegation(
+              transaction.stacker,
+              amount,
+              transaction.currentBlock,
+              transaction.poxAddress,
+              transaction.maxCycles,
+              localNonce,
+              poolClient,
+              fee,
+            );
+            localNonce++;
+            await savePendingTransaction({
+              ...transaction,
+              txid: txidAcceptedDelegation,
+            });
+            timestampLog(
+              `Delegation from ${transaction.stacker} was accepted for ${amount} uSTX for ${transaction.maxCycles} cycles. Txid: ${txidAcceptedDelegation}`
+            );
+          } else {
+            timestampLog(`Delegation from ${transaction.stacker} could not be accepted, as the user doesn't have any balance.`)
+          };
           break;
 
         case 'delegate-stack-extend':
+          if (transaction.poxAddress != rewardAddress) {
+            addressChanged = true;
+          };
+
           const txidExtendedDelegation = await extendDelegation(
             transaction.stacker,
             transaction.poxAddress,
             transaction.maxExtendCycles,
             localNonce,
-            poolClient
+            poolClient,
+            fee,
           );
           localNonce++;
           await savePendingTransaction({
             ...transaction,
             txid: txidExtendedDelegation,
           });
-          console.log(
+
+          timestampLog(
             `Delegation from ${transaction.stacker} was extended for ${transaction.maxExtendCycles} cycles. Txid: ${txidExtendedDelegation}`
           );
           break;
 
         case 'delegate-stack-increase':
-          const txidIncreasedDelegation = await increaseDelegation(
-            transaction.stacker,
-            transaction.poxAddress,
-            transaction.increaseAmount,
-            localNonce,
-            poolClient
-          );
-          localNonce++;
-          await savePendingTransaction({
-            ...transaction,
-            txid: txidIncreasedDelegation,
-          });
-          console.log(
-            `Delegation from ${transaction.stacker} was increased by ${transaction.increaseAmount} uSTX. Txid: ${txidIncreasedDelegation}`
-          );
+          if (transaction.poxAddress != rewardAddress) {
+            addressChanged = true;
+          }
+
+          const previousAmount = transaction.delegatedAmount - transaction.increaseAmount;
+          const { locked: lockedIncrease, total: totalIncrease } = await getUserUnlockedBalance(transaction.stacker);
+          if (totalIncrease === null && lockedIncrease === null) {
+            return;
+          };
+
+          if (totalIncrease - lockedIncrease > previousAmount) {
+            const amount = Math.min(transaction.increaseAmount, totalIncrease - lockedIncrease - previousAmount);
+            const txidIncreasedDelegation = await increaseDelegation(
+              transaction.stacker,
+              transaction.poxAddress,
+              amount,
+              localNonce,
+              poolClient,
+              fee,
+            );
+            localNonce++;
+            await savePendingTransaction({
+              ...transaction,
+              txid: txidIncreasedDelegation,
+            });
+            timestampLog(
+              `Delegation from ${transaction.stacker} was increased by ${amount} uSTX. Txid: ${txidIncreasedDelegation}`
+            )
+          } else {
+            timestampLog(`Delegation from ${transaction.stacker} could not be increased, as the user doesn't have enough balance.`)
+          };
           break;
 
         case 'stack-aggregation-commit-indexed':
           const txidCommittedDelegation = await commitDelegation(
-            transaction.poxAddress,
+            rewardAddress,
             transaction.rewardCycle,
             localNonce,
-            poolClient
+            poolClient,
+            fee,
           );
           localNonce++;
           await savePendingTransaction({
             ...transaction,
             txid: txidCommittedDelegation,
           });
-          console.log(
-            `Commitment for address ${transaction.poxAddress} was committed in cycle ${transaction.rewardCycle}. Txid: ${txidCommittedDelegation}`
+          timestampLog(
+            `Commitment for address ${rewardAddress} was committed in cycle ${transaction.rewardCycle}. Txid: ${txidCommittedDelegation}`
           );
           break;
 
         case 'stack-aggregation-increase':
           const txidCIncreasedCommitment = await increaseCommitment(
-            transaction.poxAddress,
+            rewardAddress,
             transaction.rewardCycle,
             transaction.rewardIndex,
             localNonce,
-            poolClient
+            poolClient,
+            fee,
           );
           localNonce++;
           await savePendingTransaction({
             ...transaction,
             txid: txidCIncreasedCommitment,
           });
-          console.log(
-            `Commitment for address ${transaction.poxAddress} was increased from ${transaction.amountUstx} to ${transaction.finalAmount} uSTX in cycle ${transaction.rewardCycle}. Txid: ${txidCIncreasedCommitment}`
+          timestampLog(
+            `Commitment for address ${rewardAddress} was increased from ${transaction.amountUstx} to ${transaction.finalAmount} uSTX in cycle ${transaction.rewardCycle}. Txid: ${txidCIncreasedCommitment}`
           );
           break;
       }
@@ -856,6 +908,7 @@ export const checkAvailableTransactions = (
           stacker: key,
           poxAddress: delegationList[delegationList.length - 1].poxAddress,
           increaseAmount,
+          delegatedAmount: delegation.amountUstx,
         };
         availableTransactions.push(operation);
       }
@@ -991,7 +1044,8 @@ export const checkAndBroadcastTransactions = async (
   committedDelegations: any,
   currentCycle: number,
   currentBlock: number,
-  dbEntries: any
+  dbEntries: any,
+  fee: number,
 ) => {
   const nonce = await getNonce(
     POOL_OPERATOR as string,
@@ -1041,7 +1095,18 @@ export const checkAndBroadcastTransactions = async (
     availableTransactions,
     nonce,
     poolClient,
-    dbEntries
+    dbEntries,
+    fee,
   );
   await sleep(7500);
+};
+
+export const timestampLog = (message?: any, ...optionalParams: any[]) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}]`, message, ...optionalParams);
+};
+
+export const timestampError = (message?: any, ...optionalParams: any[]) => {
+  const timestamp = new Date().toISOString();
+  console.error(`[${timestamp}]`, message, ...optionalParams);
 };

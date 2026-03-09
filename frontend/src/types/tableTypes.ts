@@ -8,15 +8,15 @@ import {
 
 export interface RowData {
   stacker: string;
-  startCycle: number;
-  endCycle: number;
-  poxAddress: string;
-  amountUstx: number;
-  amountStx: number;
+  start_cycle: number;
+  end_cycle: number;
+  pox_address: string;
+  amount_ustx: number;
+  amount_stx: number;
   txid: string;
-  functionName: string;
-  rewardCycle: number;
-  rewardIndex: number;
+  function_name: string;
+  reward_cycle: number;
+  reward_index: number;
 }
 
 export type CustomColumnDef<TData> = ColumnDef<TData> & {

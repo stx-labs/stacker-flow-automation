@@ -14,7 +14,8 @@ export const acceptDelegation = async (
   poxAddress: string | null,
   cycles: number,
   nonce: bigint,
-  poolClient: StackingClient
+  poolClient: StackingClient,
+  fee: number,
 ) => {
   return (
     await poolClient.delegateStackStx({
@@ -25,6 +26,7 @@ export const acceptDelegation = async (
       cycles,
       privateKey: POOL_PRIVATE_KEY,
       nonce,
+      fee,
     })
   ).txid;
 };
@@ -34,7 +36,8 @@ export const extendDelegation = async (
   poxAddress: string | null,
   extendCount: number,
   nonce: bigint,
-  poolClient: StackingClient
+  poolClient: StackingClient,
+  fee: number,
 ) => {
   return (
     await poolClient.delegateStackExtend({
@@ -43,6 +46,7 @@ export const extendDelegation = async (
       extendCount,
       privateKey: POOL_PRIVATE_KEY,
       nonce,
+      fee,
     })
   ).txid;
 };
@@ -52,7 +56,8 @@ export const increaseDelegation = async (
   poxAddress: string | null,
   increaseBy: number,
   nonce: bigint,
-  poolClient: StackingClient
+  poolClient: StackingClient,
+  fee: number,
 ) => {
   return (
     await poolClient.delegateStackIncrease({
@@ -61,6 +66,7 @@ export const increaseDelegation = async (
       increaseBy,
       privateKey: POOL_PRIVATE_KEY,
       nonce,
+      fee,
     })
   ).txid;
 };
@@ -69,7 +75,8 @@ export const commitDelegation = async (
   poxAddress: string,
   rewardCycle: number,
   nonce: bigint,
-  poolClient: StackingClient
+  poolClient: StackingClient,
+  fee: number,
 ) => {
   const { signerKey, signerSignature, authId, maxAmount } =
     await generateSignature(
@@ -90,6 +97,7 @@ export const commitDelegation = async (
       authId,
       maxAmount,
       nonce,
+      fee,
     })
   ).txid;
 };
@@ -99,7 +107,8 @@ export const increaseCommitment = async (
   rewardCycle: number,
   rewardIndex: number,
   nonce: bigint,
-  poolClient: StackingClient
+  poolClient: StackingClient,
+  fee: number,
 ) => {
   const { signerKey, signerSignature, authId, maxAmount } =
     await generateSignature(
@@ -121,6 +130,7 @@ export const increaseCommitment = async (
       authId,
       maxAmount,
       nonce,
+      fee,
     })
   ).txid;
 };

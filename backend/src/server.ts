@@ -7,20 +7,18 @@ import {
   selectPendingTransactions,
   selectPreviousDelegations,
 } from './models';
-import { dbPromise } from './db';
+import { all } from './db';
 import cors from 'cors';
 
 const app = express();
 app.use(cors());
 
 const fetchAllData = async () => {
-  const db = await dbPromise;
-
-  const delegations = await db.all(selectDelegations);
-  const previousDelegations = await db.all(selectPreviousDelegations);
-  const acceptedDelegations = await db.all(selectAcceptedDelegations);
-  const committedDelegations = await db.all(selectCommittedDelegations);
-  const pendingTransactions = await db.all(selectPendingTransactions);
+  const delegations = await all(selectDelegations);
+  const previousDelegations = await all(selectPreviousDelegations);
+  const acceptedDelegations = await all(selectAcceptedDelegations);
+  const committedDelegations = await all(selectCommittedDelegations);
+  const pendingTransactions = await all(selectPendingTransactions);
 
   return {
     delegations,

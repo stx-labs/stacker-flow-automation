@@ -275,17 +275,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -298,17 +298,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -320,22 +320,22 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -385,17 +385,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -407,29 +407,29 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -487,24 +487,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -517,10 +517,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -531,31 +531,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -569,36 +569,36 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -641,24 +641,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -671,10 +671,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -685,31 +685,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -721,50 +721,50 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 
@@ -844,17 +844,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -867,17 +867,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -889,92 +889,92 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -997,17 +997,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1019,99 +1019,99 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -1167,24 +1167,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 19,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 19,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1197,10 +1197,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -1211,31 +1211,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 19,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 19,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 22,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 22,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1249,106 +1249,106 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 4_000_000_000_000_000 + 2_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 4_000_000_000_000_000 + 2_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 21,
-        endCycle: 22,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 21,
+        end_cycle: 22,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -1391,24 +1391,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 19,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 19,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1421,10 +1421,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -1435,31 +1435,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 19,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 19,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1471,127 +1471,127 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 4_000_000_000_000_000 + 2_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 4_000_000_000_000_000 + 2_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 21,
-        endCycle: 22,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 21,
+        end_cycle: 22,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 22,
-        endCycle: 23,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 22,
+        end_cycle: 23,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 23,
-        endCycle: 24,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 23,
+        end_cycle: 24,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 24,
-        endCycle: 25,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 24,
+        end_cycle: 25,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 
@@ -1648,17 +1648,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1671,17 +1671,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1693,15 +1693,15 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -1743,17 +1743,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1765,22 +1765,22 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 3,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -1838,24 +1838,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1868,10 +1868,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -1882,31 +1882,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -1920,29 +1920,29 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 3,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -1984,24 +1984,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2014,10 +2014,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -2028,31 +2028,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 9,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 9,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2064,50 +2064,50 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 3,
       },
     ];
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 
@@ -2167,17 +2167,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 18,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 18,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2190,17 +2190,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 15,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 15,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2212,57 +2212,57 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -2304,17 +2304,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 16,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 16,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2326,64 +2326,64 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -2441,24 +2441,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 17,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 17,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2471,10 +2471,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 18,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 18,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -2485,31 +2485,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 17,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 17,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 17,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 17,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2523,71 +2523,71 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -2630,24 +2630,24 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 17,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 17,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2660,10 +2660,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 18,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 18,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -2674,31 +2674,31 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 17,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 17,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2710,92 +2710,92 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 4_000_000_000_000_000 + 5_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 4_000_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 4_000_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 
@@ -2875,17 +2875,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 1111,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 1111,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2898,17 +2898,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 20,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 20,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -2920,92 +2920,92 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -3028,17 +3028,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 21,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 21,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3050,99 +3050,99 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -3207,31 +3207,31 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 1000,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 1000,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 1222,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 1222,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 11,
-        endCycle: null,
-        poxAddress: null,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: null,
+        pox_address: null,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3244,10 +3244,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 1111,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 1111,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -3258,38 +3258,38 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 22,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 22,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 23,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 23,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 22,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 22,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 11,
-        endCycle: 23,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 23,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3303,157 +3303,157 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 21,
-        endCycle: 22,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 21,
+        end_cycle: 22,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 22,
-        endCycle: 23,
-        amountUstx: 5_000_000_000_000_000 + 2_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 22,
+        end_cycle: 23,
+        amount_ustx: 5_000_000_000_000_000 + 2_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -3503,31 +3503,31 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 1000,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 1000,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 1222,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 1222,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 11,
-        endCycle: null,
-        poxAddress: null,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: null,
+        pox_address: null,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3540,10 +3540,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 1111,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 1111,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -3554,38 +3554,38 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 36,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 36,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 11,
-        endCycle: 36,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 36,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 11,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 11,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 11,
-        endCycle: 36,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 36,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 11,
-        endCycle: 36,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 11,
+        end_cycle: 36,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3597,304 +3597,304 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 21,
-        endCycle: 22,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 21,
+        end_cycle: 22,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 22,
-        endCycle: 23,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 22,
+        end_cycle: 23,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 23,
-        endCycle: 24,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 23,
+        end_cycle: 24,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 24,
-        endCycle: 25,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 24,
+        end_cycle: 25,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 25,
-        endCycle: 26,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 25,
+        end_cycle: 26,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 26,
-        endCycle: 27,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 26,
+        end_cycle: 27,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 27,
-        endCycle: 28,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 27,
+        end_cycle: 28,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 28,
-        endCycle: 29,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 28,
+        end_cycle: 29,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 29,
-        endCycle: 30,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 29,
+        end_cycle: 30,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 30,
-        endCycle: 31,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 30,
+        end_cycle: 31,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 31,
-        endCycle: 32,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 31,
+        end_cycle: 32,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 32,
-        endCycle: 33,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 32,
+        end_cycle: 33,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 33,
-        endCycle: 34,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 33,
+        end_cycle: 34,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 34,
-        endCycle: 35,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 34,
+        end_cycle: 35,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 35,
-        endCycle: 36,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 35,
+        end_cycle: 36,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
     ];
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 
@@ -3956,17 +3956,17 @@ describe('Stacks transactions', () => {
     const expectedDelegationDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 3000,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 3000,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     delegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -3979,17 +3979,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsDel = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 12,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 12,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegations.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4001,36 +4001,36 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelDel = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegations.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelDel.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegations.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelDel.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegations).toEqual(expectedCommitedDelDel);
 
@@ -4072,17 +4072,17 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsExt = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 13,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 13,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 13,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 13,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
     acceptedDelegationsAfter.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4094,43 +4094,43 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelAfter = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
     ];
-    committedDelegationsAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelAfter.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelAfter.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsAfter).toEqual(expectedCommitedDelAfter);
 
@@ -4197,31 +4197,31 @@ describe('Stacks transactions', () => {
     const expectedDelegationIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 3000,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 3000,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 2000,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 2000,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 10,
-        endCycle: null,
-        poxAddress: null,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: null,
+        pox_address: null,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     delegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4234,10 +4234,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsIncrease = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -4248,38 +4248,38 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsIncrease = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 10,
-        endCycle: 14,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 14,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     acceptedDelegationsIncrease.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4293,66 +4293,66 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelIncrease = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
     ];
-    committedDelegationsIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelIncrease.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelIncrease.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsIncrease).toEqual(expectedCommitedDelIncrease);
 
@@ -4401,31 +4401,31 @@ describe('Stacks transactions', () => {
     const expectedDelegationEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 3000,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 3000,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 2000,
-        poxAddress: null,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 2000,
+        pox_address: null,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 10,
-        endCycle: null,
-        poxAddress: null,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: null,
+        pox_address: null,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     delegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4438,10 +4438,10 @@ describe('Stacks transactions', () => {
     const expectedPreviousDelegationsEnd = [
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: null,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: null,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
     ];
 
@@ -4452,38 +4452,38 @@ describe('Stacks transactions', () => {
     const expectedAcceptedDelegationsEnd = [
       {
         stacker: alice.address,
-        startCycle: 8,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_000_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_000_000_000_000_000,
       },
       {
         stacker: charlie.address,
-        startCycle: 10,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 5_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 5_000_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 8,
-        endCycle: 10,
-        poxAddress: pool.btcAddress,
-        amountUstx: 1_500_000_000_000_000,
+        start_cycle: 8,
+        end_cycle: 10,
+        pox_address: pool.btcAddress,
+        amount_ustx: 1_500_000_000_000_000,
       },
       {
         stacker: bob.address,
-        startCycle: 10,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 4_000_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 4_000_000_000_000_000,
       },
       {
         stacker: dave.address,
-        startCycle: 10,
-        endCycle: 25,
-        poxAddress: pool.btcAddress,
-        amountUstx: 2_500_000_000_000_000,
+        start_cycle: 10,
+        end_cycle: 25,
+        pox_address: pool.btcAddress,
+        amount_ustx: 2_500_000_000_000_000,
       },
     ];
     acceptedDelegationsEnd.sort((a: any, b: any) => a.stacker.localeCompare(b.stacker));
@@ -4495,188 +4495,188 @@ describe('Stacks transactions', () => {
 
     const expectedCommitedDelEnd = [
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 8,
-        endCycle: 9,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 3,
+        pox_address: pool.btcAddress,
+        start_cycle: 8,
+        end_cycle: 9,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 3,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 9,
-        endCycle: 10,
-        amountUstx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
-        rewardIndex: 0,
+        pox_address: pool.btcAddress,
+        start_cycle: 9,
+        end_cycle: 10,
+        amount_ustx: 2_000_000_000_000_000 + 1_500_000_000_000_000,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 10,
-        endCycle: 11,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 10,
+        end_cycle: 11,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 11,
-        endCycle: 12,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 11,
+        end_cycle: 12,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 12,
-        endCycle: 13,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 12,
+        end_cycle: 13,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 13,
-        endCycle: 14,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 13,
+        end_cycle: 14,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 14,
-        endCycle: 15,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 14,
+        end_cycle: 15,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 15,
-        endCycle: 16,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 15,
+        end_cycle: 16,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 16,
-        endCycle: 17,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 16,
+        end_cycle: 17,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 17,
-        endCycle: 18,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 17,
+        end_cycle: 18,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 18,
-        endCycle: 19,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 18,
+        end_cycle: 19,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 19,
-        endCycle: 20,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 19,
+        end_cycle: 20,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 20,
-        endCycle: 21,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 20,
+        end_cycle: 21,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 21,
-        endCycle: 22,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 21,
+        end_cycle: 22,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 22,
-        endCycle: 23,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 22,
+        end_cycle: 23,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 23,
-        endCycle: 24,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 23,
+        end_cycle: 24,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
       {
-        poxAddress: pool.btcAddress,
-        startCycle: 24,
-        endCycle: 25,
-        amountUstx:
+        pox_address: pool.btcAddress,
+        start_cycle: 24,
+        end_cycle: 25,
+        amount_ustx:
           2_000_000_000_000_000 +
           4_000_000_000_000_000 +
           5_000_000_000_000_000 +
           2_500_000_000_000_000,
-        rewardIndex: 0,
+        reward_index: 0,
       },
     ];
 
-    committedDelegationsEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
-    expectedCommitedDelEnd.sort((a: any, b: any) => a.poxAddress.localeCompare(b.poxAddress));
+    committedDelegationsEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
+    expectedCommitedDelEnd.sort((a: any, b: any) => a.pox_address.localeCompare(b.pox_address));
 
     expect(committedDelegationsEnd).toEqual(expectedCommitedDelEnd);
 

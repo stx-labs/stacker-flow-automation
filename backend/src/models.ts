@@ -1,58 +1,59 @@
 export const createDelegationsTable = `
-  CREATE TABLE IF NOT EXISTS Delegations (
+  CREATE TABLE IF NOT EXISTS delegations (
     stacker TEXT NOT NULL,
-    startCycle INTEGER,
-    endCycle INTEGER,
-    poxAddress TEXT,
-    amountUstx INTEGER NOT NULL
+    start_cycle INTEGER,
+    end_cycle INTEGER,
+    pox_address TEXT,
+    amount_ustx BIGINT NOT NULL
   );
 `;
 
 export const createPreviousDelegationsTable = `
-  CREATE TABLE IF NOT EXISTS PreviousDelegations (
+  CREATE TABLE IF NOT EXISTS previous_delegations (
     stacker TEXT NOT NULL,
-    startCycle INTEGER,
-    endCycle INTEGER,
-    poxAddress TEXT,
-    amountUstx INTEGER NOT NULL
+    start_cycle INTEGER,
+    end_cycle INTEGER,
+    pox_address TEXT,
+    amount_ustx BIGINT NOT NULL
   );
 `;
 
 export const createAcceptedDelegationsTable = `
-  CREATE TABLE IF NOT EXISTS AcceptedDelegations (
+  CREATE TABLE IF NOT EXISTS accepted_delegations (
     stacker TEXT NOT NULL,
-    startCycle INTEGER,
-    endCycle INTEGER,
-    poxAddress TEXT,
-    amountUstx INTEGER NOT NULL
+    start_cycle INTEGER,
+    end_cycle INTEGER,
+    pox_address TEXT,
+    amount_ustx BIGINT NOT NULL
   );
 `;
 
 export const createCommittedDelegationsTable = `
-  CREATE TABLE IF NOT EXISTS CommittedDelegations (
-    poxAddress TEXT NOT NULL,
-    startCycle INTEGER,
-    endCycle INTEGER,
-    amountUstx INTEGER NOT NULL,
-    rewardIndex INTEGER
+  CREATE TABLE IF NOT EXISTS committed_delegations (
+    pox_address TEXT NOT NULL,
+    start_cycle INTEGER,
+    end_cycle INTEGER,
+    amount_ustx BIGINT NOT NULL,
+    reward_index INTEGER
   );
 `;
 
 export const createPendingTransactionsTable = `
-  CREATE TABLE IF NOT EXISTS PendingTransactions (
+  CREATE TABLE IF NOT EXISTS pending_transactions (
     txid TEXT NOT NULL,
-    functionName TEXT NOT NULL,
+    function_name TEXT NOT NULL,
     stacker TEXT,
-    poxAddress TEXT,
-    startCycle INTEGER,
-    endCycle INTEGER,
-    rewardCycle INTEGER,
-    rewardIndex INTEGER
+    pox_address TEXT,
+    start_cycle INTEGER,
+    end_cycle INTEGER,
+    reward_cycle INTEGER,
+    reward_index INTEGER
   );
 `;
 
 export const createEventsTable = `
-  CREATE TABLE IF NOT EXISTS Events (
+  CREATE TABLE IF NOT EXISTS events (
+    id SERIAL PRIMARY KEY,
     event_index INTEGER,
     event_type TEXT,
     tx_id TEXT,
@@ -64,103 +65,127 @@ export const createEventsTable = `
 `;
 
 export const createRewardIndexesTable = `
-  CREATE TABLE IF NOT EXISTS RewardIndexes (
+  CREATE TABLE IF NOT EXISTS reward_indexes (
     cycle INTEGER,
-    rewardIndex INTEGER,
-    poxAddress TEXT,
+    reward_index INTEGER,
+    pox_address TEXT,
     signer TEXT,
     stacker TEXT,
-    totalUstx TEXT
+    total_ustx TEXT
   );
 `;
 
 export const clearDelegations = `
-  DELETE FROM Delegations;
+  DELETE FROM delegations;
 `;
 
 export const clearPreviousDelegations = `
-  DELETE FROM PreviousDelegations;
+  DELETE FROM previous_delegations;
 `;
 
 export const clearAcceptedDelegations = `
-  DELETE FROM AcceptedDelegations;
+  DELETE FROM accepted_delegations;
 `;
 
 export const clearCommittedDelegations = `
-  DELETE FROM CommittedDelegations;
+  DELETE FROM committed_delegations;
 `;
 
 export const clearPendingTransactionsByTxid = `
-  DELETE FROM PendingTransactions WHERE txid = ?
+  DELETE FROM pending_transactions WHERE txid = $1
 `;
 
 export const clearEvents = `
-  DELETE FROM Events;
+  DELETE FROM events;
 `;
 
 export const clearRewardIndexes = `
-  DELETE FROM RewardIndexes;
+  DELETE FROM reward_indexes;
 `;
 
 export const insertDelegations = `
-  INSERT INTO Delegations (stacker, startCycle, endCycle, poxAddress, amountUstx)
-  VALUES (?, ?, ?, ?, ?)
+  INSERT INTO delegations (stacker, start_cycle, end_cycle, pox_address, amount_ustx)
+  VALUES ($1, $2, $3, $4, $5);
 `;
 
 export const insertPreviousDelegations = `
-  INSERT INTO PreviousDelegations (stacker, startCycle, endCycle, poxAddress, amountUstx)
-  VALUES (?, ?, ?, ?, ?)
+  INSERT INTO previous_delegations (stacker, start_cycle, end_cycle, pox_address, amount_ustx)
+  VALUES ($1, $2, $3, $4, $5);
 `;
 
 export const insertAcceptedDelegations = `
-  INSERT INTO AcceptedDelegations (stacker, startCycle, endCycle, poxAddress, amountUstx)
-  VALUES (?, ?, ?, ?, ?)
+  INSERT INTO accepted_delegations (stacker, start_cycle, end_cycle, pox_address, amount_ustx)
+  VALUES ($1, $2, $3, $4, $5);
 `;
 
 export const insertCommittedDelegations = `
-  INSERT INTO CommittedDelegations (poxAddress, startCycle, endCycle, amountUstx, rewardIndex)
-  VALUES (?, ?, ?, ?, ?)
+  INSERT INTO committed_delegations (pox_address, start_cycle, end_cycle, amount_ustx, reward_index)
+  VALUES ($1, $2, $3, $4, $5);
 `;
 
 export const insertPendingTransactions = `
-  INSERT INTO PendingTransactions (txid, functionName, stacker, poxAddress, startCycle, endCycle, rewardCycle, rewardIndex)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO pending_transactions (txid, function_name, stacker, pox_address, start_cycle, end_cycle, reward_cycle, reward_index)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
 `;
 
 export const insertEvents = `
-  INSERT INTO Events (event_index, event_type, tx_id, contract_id, topic, hex, repr)
-  VALUES (?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO events (event_index, event_type, tx_id, contract_id, topic, hex, repr)
+  VALUES ($1, $2, $3, $4, $5, $6, $7);
 `;
 
 export const insertRewardIndexes = `
-  INSERT INTO RewardIndexes (cycle, rewardIndex, poxAddress, signer, stacker, totalUstx)
-  VALUES (?, ?, ?, ?, ?, ?)
+  INSERT INTO reward_indexes (cycle, reward_index, pox_address, signer, stacker, total_ustx)
+  VALUES ($1, $2, $3, $4, $5, $6);
 `;
 
 export const selectDelegations = `
-  SELECT * FROM Delegations
+SELECT * FROM delegations
 `;
 
 export const selectPreviousDelegations = `
-  SELECT * FROM PreviousDelegations
+SELECT * FROM previous_delegations
 `;
 
 export const selectAcceptedDelegations = `
-  SELECT * FROM AcceptedDelegations
+SELECT * FROM accepted_delegations
 `;
 
 export const selectCommittedDelegations = `
-  SELECT * FROM CommittedDelegations
+SELECT * FROM committed_delegations
 `;
 
 export const selectPendingTransactions = `
-  SELECT * FROM PendingTransactions
+  SELECT * FROM pending_transactions
 `;
 
 export const selectEvents = `
-  SELECT * FROM Events
+  SELECT * FROM events ORDER BY id ASC
 `;
 
 export const selectRewardIndexes = `
-  SELECT * FROM RewardIndexes
+  SELECT * FROM reward_indexes
+`;
+
+export const selectTotalAmounts = `
+  SELECT
+    COALESCE(SUM(CASE WHEN tableType = 'delegations' THEN amount_ustx END), 0) AS total_delegated,
+    COALESCE(SUM(CASE WHEN tableType = 'accepted_delegations' THEN amount_ustx END), 0) AS total_accepted,
+    COALESCE(SUM(CASE WHEN tableType = 'committed_delegations' THEN amount_ustx END), 0) AS total_committed
+  FROM (
+    SELECT 'delegations' AS tableType, amount_ustx
+    FROM delegations
+    WHERE start_cycle <= $1 AND (end_cycle > $1 OR end_cycle IS NULL)
+
+    UNION ALL
+
+    SELECT 'accepted_delegations' AS tableType, amount_ustx
+    FROM accepted_delegations
+    WHERE start_cycle <= $1 AND (end_cycle > $1 OR end_cycle IS NULL)
+
+    UNION ALL
+
+    SELECT 'committed_delegations' AS tableType, amount_ustx
+    FROM committed_delegations
+    WHERE start_cycle <= $1 AND (end_cycle > $1 OR end_cycle IS NULL)
+  ) AS combined;
 `;

@@ -132,7 +132,7 @@ export const getPendingTransactions = async (): Promise<DatabaseEntry[]> => {
     functionName: row.function_name,
     stacker: row.stacker,
     poxAddress: row.pox_address,
-    startCycle: row.txstart_cycleid,
+    startCycle: row.start_cycle,
     endCycle: row.end_cycle,
     rewardCycle: row.reward_cycle,
     rewardIndex: row.reward_index,

@@ -686,7 +686,7 @@ const processTransactions = async (
         case 'delegate-stack-stx':
           const { locked: lockedStack, total: totalStack } = await getUserUnlockedBalance(transaction.stacker);
           if (totalStack === null && lockedStack === null) {
-            return;
+            continue;
           };
 
           if (totalStack > 0 && !(lockedStack > 0)) {

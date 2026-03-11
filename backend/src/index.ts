@@ -22,7 +22,7 @@ import {
 import { sleep } from './transactions';
 import { Gauge, register } from 'prom-client';
 import { DATABASE_CONFIG, DETAILED_LOGS, POOL_OPERATOR, PROMETHEUS_PORT } from './consts';
-import { createDatabaseIfNotExists } from './db';
+import { createDatabaseIfNotExists, query } from './db';
 
 process.on('unhandledRejection', (reason, promise) => {
   timestampError('Unhandled Rejection at:', promise, 'reason:', reason);
@@ -163,12 +163,18 @@ const main = async () => {
           timestampLog('Total amount committed:', totalAmounts.totalCommitted);
         };
 
-        await clearTables();
-
-        await saveDelegations(delegations);
-        await saveAcceptedDelegations(acceptedDelegations);
-        await saveCommittedDelegations(committedDelegations);
-        await savePreviousDelegations(previousDelegations);
+        await query('BEGIN');
+        try {
+          await clearTables();
+          await saveDelegations(delegations);
+          await saveAcceptedDelegations(acceptedDelegations);
+          await saveCommittedDelegations(committedDelegations);
+          await savePreviousDelegations(previousDelegations);
+          await query('COMMIT');
+        } catch (e) {
+          await query('ROLLBACK');
+          timestampError(e);
+        };
 
         if (
           blocksUntilPreparePhase <
